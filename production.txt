@@ -1,0 +1,59 @@
+<functions>  ->    <function> <functions>
+<functions>  ->   
+<function>   ->   <type> VARIABLE ( <params> ) <funcbody>
+<type>       ->   int
+<type>       ->   float
+<type>       ->   long
+<type>       ->   char
+<type>       ->   short
+<params>     ->   
+<params>     ->   <type> VARIABLE <params'>
+<params'>    ->   , <type> VARIABLE <params'>
+<params'>    ->   
+<funcbody>   ->   ;
+<funcbody>   ->   { <procedures> }
+<procedures> ->     <procedure> <procedures>
+<procedures> ->   
+<procedure>  ->    <declare> ;
+<procedure>  ->    <assignment> ;
+<procedrue>  ->    <E>
+<procedure>  ->    <loop>
+<procedure>  ->    <branch>
+<declare>    ->  <type> VARIABLE 
+<assignment> ->     VARIABLE <aoperator> <E>
+<aoperator>  ->     =
+<aoperator>  ->     +=
+<aoperator>  ->     -=
+<aoperator>  ->     /=
+<aoperator>  ->     *=
+<E>  ->    INT
+<E>  ->    HEX 
+<E>  ->    OCTAL
+<E>  ->    FLOAT 
+<E>  ->     ( <doperator> VARIABLE <E'> ) 
+<E>  ->     <doperator> VARIABLE <E'> 
+<E'> ->        
+<E'> ->     <soperator> <e>
+<e>  ->     <E>
+<e>  ->     <doperator> VARIABLE <e'>
+<e'> ->      <soperator> <e>
+<e'> ->     
+<doperator>  ->    ++
+<doperator>  ->    --
+<doperator>  ->    !
+<doperator>  ->   
+<soperator>  ->    +
+<soperator>  ->    -
+<soperator>  ->    *
+<soperator>  ->    ==
+<soperator>  ->    !=
+<soperator>  ->    >
+<soperator>  ->    <
+<soperator>  ->    >=
+<soperator>  ->    <=
+<loop>    ->   while ( <E> ) <loopbody>
+<loopbody>   ->    { <procedures> }   
+<branch>     -> if ( <E> ) <branchbody> <branch'>
+<branchbody> -> { <procedures> }
+<branch'>    ->  
+<branch'>    ->  else { <procedures> }
