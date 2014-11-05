@@ -1,0 +1,42 @@
+<functions>  ->    <function> <functions>
+<functions>  ->   
+<function>   ->   B VARIABLE ( <params> ) <funcbody>
+B       ->   int #B.type,int# #B.width,4#
+B       ->   float #B.type,float# #B.width,8#
+B       ->   long #B.type,long# #B.width,4#
+B       ->   char #B.type,char# #B.width,1#
+B       ->   short #B.type,short# #B.width,2#
+<params>     ->   
+<params>     ->   B VARIABLE <params'>
+<params'>    ->   , B VARIABLE <params'>
+<params'>    ->   
+<funcbody>   ->   ;
+<funcbody>   ->   { <procedures> }
+<procedures> ->     <procedure> <procedures>
+<procedures> ->     <declare> <procedures>
+<procedures> ->    
+<procedure>  ->    <assignment> ;
+<procedrue>  ->    E
+<procedure>  ->    L
+<procedure>  ->    S
+<declare>    ->    T VARIABLE ; #offset,T.width#
+T            ->     B #t,B.type# #w,B.width# C #T.type,C.type# #T.width,C.width#
+C            ->  	#C.type,t# #C.width,w#
+C            ->     [ INT ] C #C.type,array,INT,C.type# #C.width,INT,C.width#
+<assignment> ->     VARIABLE = E #gen,VARIABLE,E.addr#
+E  ->    INT #E.addr,INT#
+E  ->    HEX #E.addr,HEX#
+E  ->    OCTAL #E.addr,OCTAL#
+E  ->    FLOAT #E.addr,FLOAT#
+E  ->    ( E ) #E.addr,E.addr#
+E  ->    INT E' #gen,INT,E'.addr#
+E  ->    VARIABLE E' #gen,VARIABLE,E'.addr#
+E' ->    #E'.r,null#
+E' ->    + E #+,E'.addr,E.addr#
+E' ->    * E #*,E'.addr,E.addr# 
+L    ->   while ( #begin,label# #E.true# E #gen,E.addr,goto,E.true# #gen,goto,L.next# ) LB
+LB   ->   #B.true,label# { <procedures> } #gen,goto,begin# #L.next,label#   
+S     ->  if ( #E.true# #E.false# E #gen,E.addr,goto,E.true# #gen,goto,E.false# ) SB S' #S.next,label#
+SB    ->  #E.true,label# { <procedures> } #gen,goto,S.next#
+S'    ->  #E.false,label#
+S'    ->  else #E.false,label# { <procedures> }
